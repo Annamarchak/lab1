@@ -1,0 +1,31 @@
+# Віртуальне середовище 
+venv/
+env/
+ENV/
+
+# Кеш Python 
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Дистрибутиви та пакунки
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+
+# Секрети 
+.env
+
+# Системні файли
+.DS_Store
+Thumbs.db
