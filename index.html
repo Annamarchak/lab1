@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>UniDone - Student Deadline Manager</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>UniDone</h1>
+      <p id="app-status"></p>
+    </div>
+
+    <script type="module" src="/src/logic.js"></script>
+
+    <script type="module">
+      // Скрипт для виведення змінної оточення
+      const statusElement = document.getElementById('app-status');
+      if (statusElement) {
+        statusElement.innerText = `Режим: ${import.meta.env.VITE_APP_STATUS}`;
+      }
+    </script>
+  </body>
+</html>
