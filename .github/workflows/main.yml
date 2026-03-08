@@ -8,22 +8,31 @@ on:
 
 jobs:
   check-code:
+    # 1. Визначення середовища (Ubuntu)
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # 2. Налаштування Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
 
+      # 3. Встановлення залежностей
       - name: Install dependencies
         run: npm install
 
+      # 4. Перевірка якості коду (Linting)
       - name: Run Lint
         run: npm run lint
 
+      # 5. Запуск тестів
+      - name: Run Unit Tests
+        run: npm run test:unit -- --run
+      
       - name: Build project
         run: npm run build
