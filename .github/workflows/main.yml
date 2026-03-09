@@ -36,3 +36,15 @@ jobs:
       
       - name: Build project
         run: npm run build
+
+        - name: Check Secrets Availability
+        run: |
+          echo "Checking if the secret is available..."
+          if [ -n "${{ secrets.MY_PROJECT_API_KEY }}" ]; then
+            echo "Secret is successfully loaded!"
+          else
+            echo "Secret is missing!"
+            exit 1
+          fi
+        env:
+          MY_KEY: ${{ secrets.MY_PROJECT_API_KEY }}
