@@ -1,4 +1,5 @@
 # Python Data Tracker MVP
+[![CI/CD Pipeline](https://github.com/Annamarchak/lab1/actions/workflows/main.yml/badge.svg)](https://github.com/Annamarchak/lab1/actions/workflows/main.yml)
 
 ### Опис проєкту
 Цей проєкт розроблено в межах лабораторної роботи №1. 
