@@ -8,43 +8,36 @@ on:
 
 jobs:
   check-code:
-    # 1. Визначення середовища (Ubuntu)
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Налаштування Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
 
-      # 3. Встановлення залежностей
       - name: Install dependencies
         run: npm install
 
-      # 4. Перевірка якості коду (Linting)
       - name: Run Lint
         run: npm run lint
 
-      # 5. Запуск тестів
       - name: Run Unit Tests
         run: npm run test:unit -- --run
       
       - name: Build project
         run: npm run build
 
-        - name: Check Secrets Availability
+      # Крок 4: Робота з секретами
+      - name: Check Secrets Availability
         run: |
-          echo "Checking if the secret is available..."
-          if [ -n "${{ secrets.MY_PROJECT_API_KEY }}" ]; then
+          if [ "${{ secrets.MY_PROJECT_API_KEY }}" != "" ]; then
             echo "Secret is successfully loaded!"
           else
             echo "Secret is missing!"
             exit 1
           fi
-        env:
-          MY_KEY: ${{ secrets.MY_PROJECT_API_KEY }}
